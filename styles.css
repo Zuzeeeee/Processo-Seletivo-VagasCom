@@ -38,7 +38,7 @@ body {
   margin-bottom: 32px;
 }
 
-.label {
+label {
   font-size: 18px;
   font-weight: 600;
 }
@@ -75,12 +75,27 @@ body {
   font-size: 14px;
 }
 
-.fieldset {
+fieldset {
   padding: 0 32px;
+  border: none;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
 }
 
 .counter svg {
   fill: #2f3676;
+}
+
+.counter svg:hover {
+  fill: #191847;
+}
+
+.counter-btn {
+  fill-opacity:0;
+  stroke-opacity:0;
 }
 
 .counter input {
@@ -88,19 +103,84 @@ body {
   border: 1px solid #2f3676;
   border-radius: 7px;
   font-size: 20px;
-  font-weight: bold;
   margin: 0 8px;
-  width: 60px;
+  display: flex;
+  height: 42px;
+  font-weight: 700;
+  text-align: center;
 }
 
-.footer {
+.checkmark {
+  display: block;
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.checkmark:hover input ~ .checkbox {
+  background-color: #191847;
+}
+
+.checkmark input:checked ~ .checkbox {
+  background-color: #2F3676;
+}
+
+.checkmark .checkbox:after {
+  left: 6px;
+  top: 2px;
+  width: 3px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkmark input:checked ~ .checkbox:after {
+  display: block;
+}
+
+.checkbox:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkmark input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox {
+  background-color: #2F3676;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #2f3676;
+  border-radius: 4px;
+}
+
+footer {
   padding: 32px;
   background: #dde3e9;
   display: flex;
   justify-content: flex-end;
 }
 
-.footer button {
+footer button {
   appearance: none;
   background: #2f3676;
   border: 0;
@@ -113,8 +193,8 @@ body {
   padding: 8px 32px;
 }
 
-.footer button:focus,
-.footer button:hover {
+footer button:focus,
+footer button:hover {
   border: 2px solid #2f3676;
   background: #191847;
 }
